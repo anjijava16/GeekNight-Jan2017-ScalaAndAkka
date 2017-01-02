@@ -1,0 +1,41 @@
+GeekNight - Multi-paradigm programming in Scala and Akka
+
+6:45 - 7:00 => Intro to FP from OOP.
+7:00 - 7:30 => 
+
+Introduction to OOP and FP through Scala.
+- Scala is a pure OOP language.
+- Scala implements Functional Programming over a pure OOP base.
+
+The following is just enough Scala to demonstrate the example.
+
+Functional Programming (with examples in Scala)
+- Referential Transparency
+- Immutability (will be important for akka)
+- Pattern Matching
+
+Object-oriented enhancements
+- traits
+- case classes
+- implicits
+
+7:45 - 8:00 => Intro to Actor Model / Whatsapp/Erlang.
+8:00 - 8:30 => Introduction and demo of Akka.
+
+Historical quote:
+- Actors are what objects were supposed to be.
+
+Actors communicate like people
+- Actors as a concurrency solution
+- Actors can be parallelized too!
+
+Reactive programming - responsive, resilient, elastic, message-driven
+
+Demonstrate the code example and show how Scala makes it easy to build actor systems.
+
+The backend of a WhatsApp-like messenger
+Alice and Bob are two users of the messenger.
+Demos:
+- Sending and receiving a message
+-
+

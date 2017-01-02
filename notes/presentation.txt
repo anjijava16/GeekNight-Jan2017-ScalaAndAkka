@@ -1,0 +1,22 @@
+GeekNight - Multi-paradigm programming in Scala and Akka
+
+Energizer: Scala Movie trailer.
+
+Theme: Hybrids - best of both worlds.
+
+An example app (like in "in action" books)
+Implementing WhatsApp in Scala and Akka
+
+Just enough Scala for this example:
+Immutability
+Case Classes
+Pattern Matching
+Partial Functions
+Traits
+
+Topics to be covered in the second session:
+Just enough Scala
+Actors as a type of Objects
+Thinking of Actors like People
+Using FP inside Actor classes
+

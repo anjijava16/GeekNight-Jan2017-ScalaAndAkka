@@ -1,0 +1,28 @@
+LinkedIn
+https://in.linkedin.com/in/joseph-nuthalapati-b27a0250
+
+Title candidates:
+Reactive Systems and Hybrid Programming Paradigms
+Reactive programming using a hybrid stack
+Let's blend OOP, FP and the Actor Model
+Hybrid programming in Scala and Akka
+Programming in Hybrid paradigms in Scala and Akka
+
+
+Theme: Hybrids/Why not both?
+
+LinkedIn
+https://in.linkedin.com/in/joseph-nuthalapati-b27a0250
+
+Title:
+Multi-paradigm programming in Scala and Akka
+
+Description:
+Why settle for one programming paradigm when you can have the best features of many? Introducing a combination of Object-oriented, Functional and Actor-based programming to build systems that are responsive, resilient, elastic and message driven.
+
+Agenda:
+06:45 to 07:30 Multi-paradigm programming in Scala
+07:30 to 07:45 Break & Networking
+07:45 to 08:30 Designing actor systems in Akka
+
+

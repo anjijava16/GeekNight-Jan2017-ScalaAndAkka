@@ -1,0 +1,10 @@
+Scala as a hybrid language
+http://baddotrobot.com/blog/2012/04/03/scala-as-a-functional-oo-hybrid/
+
+Actors are like people
+http://rerun.me/2014/09/11/introducing-actors-akka-notes-part-1/
+
+Actor model in Erlang and Akka
+https://rocketeer.be/articles/concurrency-in-erlang-scala/
+
+
