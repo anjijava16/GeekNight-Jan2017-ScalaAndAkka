@@ -2,51 +2,50 @@ package wassup
 
 import java.util.{Date, UUID}
 
-import akka.actor.{Actor, ActorContext, ActorLogging, ActorSelection}
-import Events._
-import Commands._
+import akka.actor.{Actor, ActorContext, ActorLogging, ActorRef, ActorSelection}
+import wassup.Message.MsgId
 
-object Commands {
-  type MsgId = UUID
-  case class SendMessage(msg: Message)
-  case class ReceiveMessage(msg: Message)
-  case class CheckMessages(from: Date, to: Date)
-}
+case class SendMessage(msg: Message, recipient: ActorRef)
+case class ReceiveMessage(msg: Message)
+case class CheckMessages(from: Date, to: Date)
 
 case class Message(msgId: MsgId, text: String, from: String, to: String, date: Date) {
+  def sender(implicit context: ActorContext): ActorSelection = getUserActor(from)
+
   private def getUserActor(name: String)(implicit context: ActorContext) = context.actorSelection("/user/" + name)
 
-  def sender(implicit context: ActorContext): ActorSelection = getUserActor(from)
   def recipient(implicit context: ActorContext): ActorSelection = getUserActor(to)
 }
 
-object Events {
-  case class MessageSent(msg: Message)
-  case class MessageDelivered(msg: Message)
-  case class MessageSeen(msg: Message)
+object Message {
+  type MsgId = UUID
 }
+
+case class MessageSent(msg: Message)
+case class MessageDelivered(msg: Message)
+case class MessageSeen(msg: Message)
 
 class User extends Actor with ActorLogging {
   import User._
 
-  // Actor state (can be mutable)
+  // Actor state can be mutable
   var sentMessages: List[Message] = Nil
   var receivedMessages: List[Message] = Nil
 
   override def receive: Receive = {
-    case SendMessage(msg) =>
+    case SendMessage(msg, recipient) =>
       sentMessages = msg :: sentMessages
-      msg.recipient ! ReceiveMessage(msg)
+      recipient ! ReceiveMessage(msg)
       msg.sender ! MessageSent(msg)
 
     case ReceiveMessage(msg) =>
+      log info s"""received message "${msg.text}" from ${msg.from}"""
       receivedMessages = msg :: receivedMessages
       msg.sender ! MessageDelivered(msg)
 
     case CheckMessages(startDate, endDate) =>
       val messages = receivedMessages.filter(msg => isDateInRange(msg, startDate, endDate))
       messages.foreach(msg => msg.sender ! MessageSeen(msg))
-      messages
 
     case MessageSent(msg) =>
       log.info("Message sent: ✓")
@@ -56,6 +55,10 @@ class User extends Actor with ActorLogging {
 
     case MessageSeen(msg) =>
       log.info("Message seen by recipient: ✓✓✓")
+
+    case "printState" =>
+      log info sentMessages.toString()
+      log info receivedMessages.toString()
 
   }
 }

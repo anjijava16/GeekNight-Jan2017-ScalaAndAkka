@@ -3,16 +3,23 @@ package wassup
 import java.util.{Date, UUID}
 
 import akka.actor.{ActorSystem, Props}
-import wassup.Commands.SendMessage
 
 
-object Main extends App {
+object Main {
 
-  val system = ActorSystem("wassup")
+  def main(args: Array[String]): Unit = {
 
-  val Alice = system.actorOf(Props[User], "Alice")
-  val Bob = system.actorOf(Props[User], "Bob")
+    val system = ActorSystem("wassup")
 
-  Alice ! SendMessage(Message(UUID.randomUUID(), "wassup", from="Alice", to="Bob", new Date()))
+    val Alice = system.actorOf(Props[User], "Alice")
+    val Bob = system.actorOf(Props[User], "Bob")
 
+    val date = new Date()
+    Alice ! SendMessage(Message(UUID.randomUUID(), "wassup", from="Alice", to="Bob", date), Bob)
+    Thread.sleep(5000)
+    Bob ! CheckMessages(date, date)
+
+    Thread.sleep(20000)
+    system.terminate()
+  }
 }
