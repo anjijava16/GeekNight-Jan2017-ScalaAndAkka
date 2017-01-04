@@ -19,7 +19,7 @@ Object-oriented enhancements
 - case classes
 - implicits
 
-7:45 - 8:00 => Intro to Actor Model / Whatsapp/Erlang.
+7:45 - 8:00 => Intro to Actor Model / Whatsapp / Erlang.
 8:00 - 8:30 => Introduction and demo of Akka.
 
 Historical quote:

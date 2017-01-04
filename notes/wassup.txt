@@ -1,0 +1,13 @@
+Wassup, a WhatsApp-like messenger app
+
+Sending a receiving messages to one user or group.
+- Show how each user owns access to their own messages and others cannot access them. Each actor is an entity.
+- Mutability is allowed in this class as an actor is expected to run on one thread only.
+
+Read receipts for one user or group
+
+Using concepts from Domain Driven Design
+
+Concurrency
+One actors runs only one thread
+One thread can execute many actors

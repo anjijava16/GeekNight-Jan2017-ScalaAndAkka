@@ -1,0 +1,41 @@
+Akka is a toolkit for building concurrent and distributed actor systems that are resilient to failure and elastic to scale.
+
+Actors are like people.
+- They cannot inspect each other's internal state, they can only communicate by passing messages to each other.
+- An actor can process only one message at a time.
+
+Akka actors provide an abstraction for concurrency and parallelism.
+Further, location transparency allows actors to be distributed across machines
+
+Actors are guaranteed to run on a single thread and thus avoid the usual issues that we have with shared mutable state.
+
+* Be careful when using actors with futures (should I even cover futures?)
+
+Jargon:
+non-blocking (in context of futures)
+
+
+Actors are what objects should have been:
+An actor is a process that executes a function.
+… Actors never share state and thus never need to compete for locks for access to shared data.
+Instead, actors share data by sending messages that are immutable.
+Immutable data cannot be modified, so reads do not require a lock.
+Messages are sent asynchronously and are buffered in an actor’s mailbox.
+A mailbox is essentially a queue with multiple producers (other actors) and a single consumer.
+A particular actor is driven by receiving messages from the mailbox based on pattern matching.
+http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
+
+
+Actors are objects that communicate like people.
+Actors are:
+concurrent
+parallel
+distributed
+location transparent
+message-driven
+
+
+Actor systems are:
+resilient, fault-tolerant, self-healing
+
+
